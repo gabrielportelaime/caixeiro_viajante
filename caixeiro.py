@@ -1,6 +1,6 @@
 # CAIXEIRO VIAJANTE
 
-def caixeiro(visitados, custo_atual, no_atual):
+def caixeiro(visitados, custo_atual, valor_atual, no_atual):
     if(len(visitados) > 0 and visitados[-1] == 0):
         completos.append(visitados)
         return 0
