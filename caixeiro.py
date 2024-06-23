@@ -49,11 +49,12 @@ caixeiro()
 #   3) TEM O MENOR VALOR DE CUSTO;
 completos.sort(key = lambda x:x[1])
 i = 0
+print('------------------------------------------------------------------')
 print('VALOR ÓTIMO:')
 print('------------------------------------------------------------------')
 print('Caminho:', ' '.join([letras[x] for x in completos[i][0]]))
 print('Custo mínimo: ', completos[i][1])
-print('Valor: ', completos[i][2], end="\n\n")
+print('Valor: ', completos[i][2])
 print('------------------------------------------------------------------')
 
 #VALOR MÁXIMO
@@ -67,5 +68,5 @@ print('VALOR MÁXIMO:')
 print('------------------------------------------------------------------')
 print('Melhor caminho:', ' '.join([letras[x] for x in completos[i][0]]))
 print('Custo: ', completos[i][1])
-print('Valor máximo: ', completos[i][2], end="\n\n")
+print('Valor máximo: ', completos[i][2])
 print('------------------------------------------------------------------')
