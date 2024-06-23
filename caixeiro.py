@@ -27,18 +27,20 @@ matriz_adjacencia =[[0, 1, 2, 5],
 vertices = len(matriz_adjacencia)
 completos = []
 
+letras = 'abcdefghijklmnopqrstuwxyz'
+
 caixeiro()
-#IMPRIME TODOS OS CAMINHOS QUE SATISFAZEM:
-#   1) COMEÇAM EM 0 E TERMINAM EM 0; 
-#   2) OBEDECEM AO VALOR DO "ORÇAMENTO";
-print('------------------------------------------------------------------')
-print('TODOS OS CAMINHOS:')
-print('------------------------------------------------------------------')
-for i in range(len(completos)):
-    print('Caminho:', ' '.join([str(x) for x in completos[i][0]]))
-    print('Custo total: ', completos[i][1])
-    print('Valor total: ', completos[i][2], end="\n\n")
-print('------------------------------------------------------------------')
+# #IMPRIME TODOS OS CAMINHOS QUE SATISFAZEM:
+# #   1) COMEÇAM EM 0 E TERMINAM EM 0; 
+# #   2) OBEDECEM AO VALOR DO "ORÇAMENTO";
+# print('------------------------------------------------------------------')
+# print('TODOS OS CAMINHOS:')
+# print('------------------------------------------------------------------')
+# for i in range(len(completos)):
+#     print('Caminho:', ' '.join([letras[x] for x in completos[i][0]]))
+#     print('Custo total: ', completos[i][1])
+#     print('Valor total: ', completos[i][2], end="\n\n")
+# print('------------------------------------------------------------------')
 
 #VALOR ÓTIMO
 #IMPRIME QUALQUER CAMINHO QUE SATISFAZ:
@@ -49,9 +51,9 @@ completos.sort(key = lambda x:x[1])
 i = 0
 print('VALOR ÓTIMO:')
 print('------------------------------------------------------------------')
-print('Caminho:', ' '.join([str(x) for x in completos[i][0]]))
-print('Custo total: ', completos[i][1])
-print('Valor total: ', completos[i][2], end="\n\n")
+print('Caminho:', ' '.join([letras[x] for x in completos[i][0]]))
+print('Custo mínimo: ', completos[i][1])
+print('Valor: ', completos[i][2], end="\n\n")
 print('------------------------------------------------------------------')
 
 #VALOR MÁXIMO
@@ -63,7 +65,7 @@ completos.sort(key = lambda x:x[2], reverse=True)
 i = 0
 print('VALOR MÁXIMO:')
 print('------------------------------------------------------------------')
-print('Caminho:', ' '.join([str(x) for x in completos[i][0]]))
-print('Custo total: ', completos[i][1])
-print('Valor total: ', completos[i][2], end="\n\n")
+print('Melhor caminho:', ' '.join([letras[x] for x in completos[i][0]]))
+print('Custo: ', completos[i][1])
+print('Valor máximo: ', completos[i][2], end="\n\n")
 print('------------------------------------------------------------------')
