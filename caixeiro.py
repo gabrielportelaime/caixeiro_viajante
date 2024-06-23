@@ -1,16 +1,23 @@
 # CAIXEIRO VIAJANTE
 
-def caixeiro(visitados = [], custo_atual = 0, valor_atual = 0, no_atual = 0):
-    visitados.append(no_atual)
-    if(len(visitados) > 1 and visitados[-1] == 0):
-        completos.append([visitados, custo_atual, valor_atual])
-        return 0        
+def caixeiro(vertices_visitados = [0], arestas_visitadas = [], custo_atual = 0, valor_atual = 0, no_atual = 0):
     for i in range(vertices):
-        custo_operacao = matriz_adjacencia[no_atual][i] + custo_atual
-        if(i != no_atual and custo_operacao <= orcamento and (i not in visitados or i == 0)):
+        if(i != no_atual):
+            custo_operacao = matriz_adjacencia[no_atual][i] + custo_atual
             valor_operacao = valor_atual + valores[i]
-            caixeiro(visitados, custo_operacao, valor_operacao, i)
-
+            if(custo_operacao <= orcamento):
+                if(set([no_atual, i]) not in arestas_visitadas):
+                    if(i not in vertices_visitados):
+                        vertices_visitados.append(i)
+                        arestas_visitadas.append(set([no_atual, i]))
+                        caixeiro(vertices_visitados[:], arestas_visitadas[:], custo_operacao, valor_operacao, i)
+                        vertices_visitados.pop(-1)
+                        arestas_visitadas.pop(-1)
+                    elif(i == 0):
+                        caminho_final = vertices_visitados[:]
+                        caminho_final.append(0)
+                        completos.append([caminho_final, custo_operacao, valor_operacao])
+                    
 orcamento = 10
 valores = [10, 20, 30, 40]
 matriz_adjacencia =[[0, 1, 2, 5], 
@@ -21,4 +28,7 @@ vertices = len(matriz_adjacencia)
 completos = []
 
 caixeiro()
-print(completos)
+for i in range(len(completos)):
+    print('Caminho:', ' '.join([str(x) for x in completos[i][0]]))
+    print('Custo total: ', completos[i][1])
+    print('Valor total: ', completos[i][2], end="\n\n")
