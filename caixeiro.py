@@ -3,7 +3,8 @@
 def caixeiro(vertices_visitados = [0], arestas_visitadas = [], custo_atual = 0, valor_atual = 0, no_atual = 0):
     # PERCORRE TODOS OS VÉRTICES ADJACENTES AO VÉRTICE ATUAL
     for i in range(vertices):
-        if(i != no_atual):
+        # VERIFICA SE É DIFERENTE DO NÓ ATUAL E VERIFICA SE HÁ ARESTA ENTRE NÓ ATUAL E O NÓ I
+        if(i != no_atual and matriz_adjacencia[no_atual][i] > 0):
             # ATUALIZA O CUSTO E O VALOR CASO PASSE POR ESSE VÉRTICE
             custo_operacao = matriz_adjacencia[no_atual][i] + custo_atual
             valor_operacao = valor_atual + valores[i]
@@ -25,9 +26,11 @@ def caixeiro(vertices_visitados = [0], arestas_visitadas = [], custo_atual = 0, 
                         caminho_final = vertices_visitados[:]
                         caminho_final.append(0)
                         completos.append([caminho_final, custo_operacao, valor_operacao])
-                    
 orcamento = 10
+
 valores = [10, 20, 30, 40]
+# PREENCHER COM O CUSTO CASO HAJA UMA ARESTA ENTRE I E J 
+# PREENCHER COM ZERO CASO NÃO HAJA ARESTA ENTRE I E J
 matriz_adjacencia =[[0, 1, 2, 5], 
                     [1, 0, 6, 4], 
                     [2, 6, 0, 4], 
