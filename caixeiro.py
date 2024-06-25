@@ -38,7 +38,7 @@ matriz_adjacencia =[[0, 1, 2, 5],
 vertices = len(matriz_adjacencia)
 completos = []
 
-letras = 'abcdefghijklmnopqrstuwxyz'
+letras = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
 caixeiro()
 # #IMPRIME TODOS OS CAMINHOS QUE SATISFAZEM:
